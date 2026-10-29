@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 6.5rem;
+  padding: var(--space-5) var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+.label {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+}

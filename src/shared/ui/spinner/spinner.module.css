@@ -1,0 +1,42 @@
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.visual {
+  display: block;
+  flex-shrink: 0;
+  animation: spin 0.9s linear infinite;
+  will-change: transform;
+}
+
+.sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.lg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visual {
+    animation: none;
+    will-change: auto;
+    opacity: 0.7;
+  }
+}

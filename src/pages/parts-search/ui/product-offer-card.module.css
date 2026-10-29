@@ -1,0 +1,95 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.selectable {
+  cursor: pointer;
+}
+
+.name {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: var(--text-md-lh);
+  color: var(--color-text);
+}
+
+.meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-width: 0;
+  max-width: 100%;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+  color: var(--color-text-secondary);
+}
+
+.metaItem {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.article {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.priceRow,
+.stockRow {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.priceRow {
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
+.price {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  font-size: var(--heading-sm);
+  line-height: var(--heading-sm-lh);
+  font-weight: 600;
+}
+
+.stockRow {
+  margin-top: var(--space-2);
+}
+
+.stock {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.warehouse {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+  color: var(--color-text-muted);
+}

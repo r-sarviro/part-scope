@@ -1,0 +1,34 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.tableOnly {
+  display: none;
+}
+
+.cardsOnly {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .cardsOnly {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .tableOnly {
+    display: block;
+  }
+
+  .cardsOnly {
+    display: none;
+  }
+}

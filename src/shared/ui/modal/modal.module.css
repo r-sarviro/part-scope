@@ -1,0 +1,50 @@
+.dialog {
+  width: min(28rem, calc(100% - 2rem));
+  max-width: calc(100% - 2rem);
+  max-height: min(40rem, calc(100dvh - 2rem));
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.dialog::backdrop {
+  background-color: var(--color-overlay);
+}
+
+.dialog:focus {
+  outline: none;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 2rem;
+  padding: var(--space-4) var(--space-4) 0;
+}
+
+.title {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.body {
+  padding: var(--space-4);
+}

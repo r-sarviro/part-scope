@@ -1,0 +1,22 @@
+.price {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: var(--text-md);
+  line-height: var(--text-md-lh);
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.wrap {
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

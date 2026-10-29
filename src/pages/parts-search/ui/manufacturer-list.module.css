@@ -1,0 +1,29 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 0;
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: var(--text-xs-lh);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  min-width: 0;
+}

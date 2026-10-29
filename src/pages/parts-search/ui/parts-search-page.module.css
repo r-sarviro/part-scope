@@ -1,0 +1,58 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  padding-block: var(--space-4) var(--space-8);
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: var(--heading-sm);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: var(--heading-sm-lh);
+  color: var(--color-text);
+}
+
+.searchCard {
+  width: 100%;
+}
+
+.workspace {
+  display: grid;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.panel {
+  min-width: 0;
+}
+
+.statusCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+}
+
+@media (min-width: 768px) {
+  .page {
+    gap: var(--space-5);
+    padding-block: var(--space-6) var(--space-12);
+  }
+
+  .workspace {
+    gap: var(--space-5);
+  }
+
+  .statusCard {
+    min-height: 16rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .workspace {
+    grid-template-columns: max-content minmax(0, 1fr);
+  }
+}
