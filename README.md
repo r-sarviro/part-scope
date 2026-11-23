@@ -1,87 +1,93 @@
 # Part Scope
 
-Клиентское SPA для поиска автозапчастей и аналогов через Web-сервис «Проценка».
+**Language:** [EN](README.md) · [RU](README.ru.md)
 
-## Возможности
+SPA for auto parts and analogues via the Protsenka API: React, TypeScript, Vite, Feature-Sliced Design.
 
-1. Поиск по артикулу → список уникальных производителей.
-2. Выбор производителя → исходная деталь и аналоги с ценами и остатками по складам.
-3. Состояния загрузки, пустого ответа, ошибок API и сети с повторной попыткой.
-4. Светлая / тёмная тема (системная по умолчанию, выбор сохраняется).
-5. Адаптивный интерфейс: таблица на широких экранах, карточки на узких.
+## Features
 
-Цена и остаток берутся только из складских предложений (`warehouses[].price` / `stock`). Поле `goods.price` не используется.
+1. Search by article number → list of unique manufacturers.
+2. Pick a manufacturer → original part and analogues with prices and warehouse stock.
+3. Loading, empty, API, and network error states with retry.
+4. Light / dark theme (system default; choice is persisted).
+5. Responsive UI: table on wide screens, cards on narrow ones.
 
-## Стек
+Price and stock are taken only from warehouse offers (`warehouses[].price` / `stock`). The `goods.price` field is not used.
+
+## Stack
 
 - React 19 + TypeScript (`strict`) + Vite
-- TanStack Query — серверное состояние и кеш
-- React Router — маршруты `/`, `/search`, 404
+- TanStack Query — server state and cache
+- React Router — routes `/`, `/search`, 404
 - Feature-Sliced Design: `app` → `pages` → `features` → `entities` → `shared`
-- CSS Modules + семантические CSS-переменные
+- CSS Modules + semantic CSS variables
 - Vitest + React Testing Library
 
-## Требования
+## Requirements
 
-- Node.js 20+ (рекомендуется LTS)
+- Node.js 20+ (LTS recommended)
 - npm
-- Действующий ключ покупателя API «Проценка»
+- A valid Protsenka buyer API key
 
-## Быстрый старт
+## Quick start
 
 ```bash
 cp .env.example .env
-# укажите реальный VITE_API_KEY в .env
+# set a real VITE_API_KEY in .env
 npm install
 npm run dev
 ```
 
-Приложение откроется на адресе Vite (обычно `http://localhost:5173`).
+The app opens on the Vite URL (usually `http://localhost:5173`).
 
-## Команды
+## Scripts
 
-| Команда              | Назначение                       |
+| Command              | Purpose                          |
 | -------------------- | -------------------------------- |
-| `npm run dev`        | Dev-сервер                       |
-| `npm run build`      | Production-сборка (`tsc` + Vite) |
-| `npm run preview`    | Превью production-сборки         |
-| `npm run typecheck`  | Проверка типов                   |
+| `npm run dev`        | Dev server                       |
+| `npm run build`      | Production build (`tsc` + Vite)  |
+| `npm run preview`    | Preview production build         |
+| `npm run typecheck`  | Type check                       |
 | `npm run lint`       | ESLint                           |
-| `npm run lint:fsd`   | Steiger (проверка FSD)           |
-| `npm run test`       | Тесты (Vitest)                   |
-| `npm run test:watch` | Тесты в watch-режиме             |
+| `npm run lint:fsd`   | Steiger (Feature-Sliced Design)  |
+| `npm run test`       | Tests (Vitest)                   |
+| `npm run test:watch` | Tests in watch mode              |
 | `npm run format`     | Prettier                         |
 
-## Переменные окружения
+## Environment
 
-Скопируйте `.env.example` в `.env`. Не коммитьте файл с реальным ключом.
+Copy `.env.example` to `.env`. Do not commit a file with a real key.
 
-| Переменная          | Назначение                 |
+| Variable            | Purpose                    |
 | ------------------- | -------------------------- |
-| `VITE_API_BASE_URL` | Базовый URL API «Проценка» |
-| `VITE_API_KEY`      | Ключ покупателя            |
+| `VITE_API_BASE_URL` | Protsenka API base URL     |
+| `VITE_API_KEY`      | Buyer API key              |
 
-Ключ попадает в клиентскую сборку. Если ключ секретный или браузер блокирует запросы (CORS / mixed content HTTP→HTTPS), нужен серверный прокси — это отдельный объём работ.
+The key is embedded in the client bundle. If the key is secret or the browser blocks requests (CORS / mixed content HTTP→HTTPS), you need a server-side proxy — that is out of scope here.
 
-## Маршруты
+## Routes
 
-| Путь                       | Экран                                   |
-| -------------------------- | --------------------------------------- |
-| `/`                        | Стартовая страница с поиском            |
-| `/search?number=…&brand=…` | Результаты: производители и предложения |
-| любой другой               | 404                                     |
+| Path                       | Screen                                      |
+| -------------------------- | ------------------------------------------- |
+| `/`                        | Home with search                            |
+| `/search?number=…&brand=…` | Results: manufacturers and offers           |
+| any other                  | 404                                         |
 
-Динамический поиск помечен `noindex`; в `public/robots.txt` путь `/search` закрыт от индексации.
+Dynamic search is marked `noindex`; `public/robots.txt` disallows `/search`.
 
-## Структура
+## Project structure
 
 ```text
 src/
-  app/        # точка входа, роутер, провайдеры, shell
+  app/        # entry, router, providers, shell
   pages/      # home, parts-search, not-found
-  features/   # поиск по артикулу (форма + URL)
-  entities/   # part: API, типы, нормализация
-  shared/     # HTTP, UI-kit, конфиг, токены, утилиты
+  features/   # article search (form + URL)
+  entities/   # part: API, types, normalization
+  shared/     # HTTP, UI kit, config, tokens, utils
 ```
 
-Импорты между срезами — только через публичный `index.ts`. Алиас: `@/*` → `src/*`.
+Cross-slice imports go only through public `index.ts`. Alias: `@/*` → `src/*`.
+
+## License
+
+MIT
